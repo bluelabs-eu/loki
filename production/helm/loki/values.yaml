@@ -148,6 +148,11 @@ loki:
         {{- end }}
     {{- end }}
 
+    {{- with .Values.loki.ingester_client }}
+    ingester_client:
+      {{- tpl (. | toYaml) $ | nindent 4 }}
+    {{- end }}
+
     {{- with .Values.loki.ingester }}
     ingester:
       {{- tpl (. | toYaml) $ | nindent 4 }}
